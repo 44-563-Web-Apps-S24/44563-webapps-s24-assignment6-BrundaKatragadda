@@ -20,7 +20,7 @@
     <br>
     <button type="button" onclick="checkAnimal()">Check the guess</button>
 </form>
-<p id="ValueHolder">Correct: 0 | Wrong: 0</p>
+<p id="Result">Correct: 0 | Wrong: 0</p>
 <script>
     let correct = 0;
     let wrong = 0;
@@ -34,7 +34,8 @@
             wrong++;
             alert("Grrrr");
         }
-        const resultValue = document.getElementById("ValueHolder");
+        //update result
+        const resultValue = document.getElementById("Result");
         resultValue.innerHTML = `Correct: ${correct} | Wrong: ${wrong}`;
     }
 </script>
