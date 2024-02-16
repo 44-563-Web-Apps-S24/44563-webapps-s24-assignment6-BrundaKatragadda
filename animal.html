@@ -13,12 +13,13 @@
 
 <form>
     <label for="form1_AnimalName">The hidden animal type</label>
-    <input type ="password" id="form1_Animal" name="form1_animalName" min=10 max=50 step=2 value=30> <br>
+    <input type ="password" id="form1_Animal" value="Chicken" name="form1_animalName" min=10 max=50 step=2 value=30> <br>
 
     <label for="form1_bru">Guess the animal</label>
     <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
 
     <input type="button" onclick="checkAnimal()" value="Check The Guess">
+    <input type="button" onclick="checkAnimal()" value="Get values from form">
 </form>
 
 
@@ -34,17 +35,28 @@ function checkAnimal()
     var element1 = document.getElementById("form1_Animal").value
     var element2 = document.getElementById("form1_guess").value
     //confirmed = confirm("Are these the values? "+age+" and "+nick)
-    if(element1==element2)
-    {
-        correct=correct+1;
-        document.getElementById("result").innerHTML = "Ruff ruff"+correct;
-    }
+    //if(element1==element2)
+    //{
+        //correct=correct+1;
+        //document.getElementById("result").innerHTML = "Ruff ruff"+correct;
+    //}
     
-    else
-    {
-        wrong+=1;
-        document.getElementById("result").innerHTML = "Grrrr"+wrong;
-    }
+    //else
+    //{
+        //wrong+=1;
+        //document.getElementById("result").innerHTML = "Grrrr"+wrong;
+    //}
+    if (element1==element2) {
+        correct++;
+        alert("Ruff ruff");
+      } else {
+        wrong++;
+        alert("Grrrr");
+      }
+ 
+      // Update the result element
+      const resultElement = document.getElementById("result");
+      resultElement.innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
 }
 </script>
 
