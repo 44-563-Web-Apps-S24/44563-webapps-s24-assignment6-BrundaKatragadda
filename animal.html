@@ -21,9 +21,14 @@
     <button type="button" onclick="checkAnimal()">Check the guess</button>
 </form>
 <p id="Result">Correct: 0 | Wrong: 0</p>
+<div>
+    <button type="button"><img src="apple.webp" alt="apple img" width="150px" height="150px" onclick="SelectImage()" id="imageOne"></button>
+
+</div>
 <script>
     let correct = 0;
     let wrong = 0;
+    var useImage=1;
     function checkAnimal() {
         const AnimalName = document.getElementById("AnimalName").value;
         const guessedAnimal = document.getElementById("guessAnimal").value;
@@ -37,6 +42,28 @@
         //update result
         const resultValue = document.getElementById("Result");
         resultValue.innerHTML = `Correct: ${correct} | Wrong: ${wrong}`;
+    }
+    function SelectImage()
+    {
+        switch(useImage)
+        {
+            case 1:
+                document.getElementById("imageOne").src="apple.webp";
+                useImage+=1;
+                break;
+            case 2:
+                document.getElementById("imageOne").src="kiwi.jpg";
+                useImage+=1;
+                break;
+            case 3:
+                document.getElementById("imageOne").src="guava.webp";
+                useImage=1;
+                break;
+
+            default:
+                break;
+
+        }
     }
 </script>
 </body>
