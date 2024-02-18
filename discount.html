@@ -87,7 +87,7 @@ function resolveForm (){
         var addition = document.getElementById("total");
         if(addition.checked)
         {
-            var count = price+discount;
+            let count = (price+discount);
             document.getElementById("output").innerHTML = "sum is "+ count;
         }
         else
