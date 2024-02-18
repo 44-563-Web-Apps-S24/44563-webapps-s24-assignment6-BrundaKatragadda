@@ -35,6 +35,16 @@
 <p id="result">This text will be replaced </p>
 </form>
 -->
+<form action="">
+    <input type="radio" id="total" name="total" onclick="chooseOp()">
+    <label for="total">Sum</label>
+    <input type="radio" id="multiplication" name="multiplication" onclick="chooseOp()">
+    <label for="multiplication">Mult</label>
+    <input type="radio" id="exponent" name="exponent" onclick="chooseOp()">
+    <label for="exponent">Exp</label>
+    <input type="radio" id="" name="" onclick="chooseOp()">
+</form>
+<p id="output">result</p>
 
 <script> 
 <!--
@@ -68,6 +78,43 @@ function resolveForm (){
             dis++;  
             document.getElementById("result").innerHTML = "Total are: "+discount+" %"+" is "+sum;
         }
+    }
+
+    function chooseOp()
+    {
+        var price = document.getElementById("cost").value;
+        var discount = document.getElementById("reductions").value; 
+        var addition = document.getElementById("total");
+        if(addition.checked)
+        {
+            var count = price+discount;
+            document.getElementById("output").innerHTML = "sum is "+ count;
+        }
+        else
+        {
+            text.innerHTML="";
+        }
+        let multiplication = document.getElementById("multiplication");
+        if(multiplication.checked)
+        {
+            var mult = price*discount;
+            document.getElementById("output").innerHTML = "mult is " + mult; 
+        }
+        else
+        {
+            text.innerHTML="";
+        }
+        let exponent = document.getElementById("exponent");
+        if(exponent.checked)
+        {
+            var exp = price**discount;
+            document.getElementById("output").innerHTML = "exp is " + exp; 
+        }
+        else
+        {
+            text.innerHTML="";
+        }
+
     }
     
 
