@@ -63,20 +63,18 @@
         //         out.innerHTML = "Values were not confirmed"
         //     }
         // }
-
+        let myOutput = "Totals are: ";
         function discount() {
             let cost = parseInt(document.getElementById("cost").value);
             let count = parseInt(document.getElementById("count").value);
-            // let reductions = parseInt(document.getElementById("reductions").value);
-            let val = "Totals are: ";
-            for (let i =5; i <= 9 ; i++) {
+            let reductions = parseInt(document.getElementById("reductions").value);
+           
+            for (let i =reductions; i < reductions+5 ; i++) {
                 let discountPercent = i;
-                let total = parseInt(cost * count);
-                console.log(total);
-                let afterDiscount = parseInt(total - (total*discount/100));
-                val += `${discountPercent}% is ${afterDiscount.toFixed(1)}; `;
+                let total = cost*count*(1-i/100);
+                myOutput += `${discountPercent}% is ${total.toFixed(1)}; `;
             }
-            document.getElementById("result").innerHTML = val;
+            document.getElementById("result").innerHTML = myOutput;
         }
 
 
