@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            DiscountPage Html
-        </title>
-    </head>
- 
+
+<head>
+    <title>
+        DiscountPage Html
+    </title>
+</head>
+
 <body>
     <h1>Katragadda Brunda discount calculations</h1>
 
-<h2>Getting input</h2>
-<label for="cost">Enter price per</label>
-<input type="number" name="cost" id="cost" value="10">
-<label for="count">Enter the number of items</label>
-<input type="number" name="count" id="count" value="9">
-<label for="reductions"> Enter the discount percent</label>
-<input type="number" name="reductions" id="reductions" value="5">
-<input type="button" onclick="discount()" value="Show total">
-<p id="result">
-    output 
-</p>
+    <h2>Getting input</h2>
+    <label for="cost">Enter price per</label>
+    <input type="number" name="cost" id="cost" value="10">
+    <label for="count">Enter the number of items</label>
+    <input type="number" name="count" id="count" value="9">
+    <label for="reductions"> Enter the discount percent</label>
+    <input type="number" name="reductions" id="reductions" value="5">
+    <input type="button" onclick="discount()" value="Show total">
+    <p id="result">
+        output
+    </p>
 
-<!--
+    <!--
 
 <form>
     <label for="form1_age">What is your age </label>
@@ -35,90 +36,81 @@
 <p id="result">This text will be replaced </p>
 </form>
 -->
-<form action="">
-    <input type="radio" id="total" name="total" onclick="chooseOp()">
-    <label for="total">Sum</label>
-    <input type="radio" id="multiplication" name="multiplication" onclick="chooseOp()">
-    <label for="multiplication">Mult</label>
-    <input type="radio" id="exponent" name="exponent" onclick="chooseOp()">
-    <label for="exponent">Exp</label>
-    <input type="radio" id="" name="" onclick="chooseOp()">
-</form>
-<p id="output">result</p>
+    <form action="">
+        <input type="radio" id="total" name="total" onclick="chooseOp()">
+        <label for="total">Sum</label>
+        <input type="radio" id="multiplication" name="multiplication" onclick="chooseOp()">
+        <label for="multiplication">Mult</label>
+        <input type="radio" id="exponent" name="exponent" onclick="chooseOp()">
+        <label for="exponent">Exp</label>
+        <input type="radio" id="" name="" onclick="chooseOp()">
+    </form>
+    <p id="output">result</p>
 
-<script> 
-<!--
-    
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-    -->
-    function discount()
-    {
-        var price = document.getElementById("cost").value;
-        var count = document.getElementById("count").value;
-        var discount = document.getElementById("reductions").value;
-        var sum ,dis;
-        var myOutput="";
-        for (let index = 0; index < 5; index++) 
-        {
-            sum = price*count;
-            dis = (sum*discount)/100;
-            sum = sum-dis;
-            dis++;  
-            document.getElementById("result").innerHTML = "Total are: "+discount+" %"+" is "+sum;
-        }
-    }
+    <script>
 
-    function chooseOp()
-    {
-        var price = document.getElementById("cost").value;
-        var discount = document.getElementById("reductions").value; 
-        var addition = document.getElementById("total");
-        if(addition.checked)
-        {
-            let count = (price+discount);
-            document.getElementById("output").innerHTML = "sum is "+ count;
-        }
-        else
-        {
-            text.innerHTML="";
-        }
-        let multiplication = document.getElementById("multiplication");
-        if(multiplication.checked)
-        {
-            var mult = price*discount;
-            document.getElementById("output").innerHTML = "mult is " + mult; 
-        }
-        else
-        {
-            text.innerHTML="";
-        }
-        let exponent = document.getElementById("exponent");
-        if(exponent.checked)
-        {
-            var exp = price**discount;
-            document.getElementById("output").innerHTML = "exp is " + exp; 
-        }
-        else
-        {
-            text.innerHTML="";
+
+        // function resolveForm() {
+        //     console.log("Getting form values")
+        //     age = document.getElementById("form1_age").value
+        //     nick = document.getElementById("form1_nick").value
+        //     confirmed = confirm("Are these the values? " + age + " and " + nick)
+
+        //     out = document.getElementById("result")
+        //     if (confirmed) {
+        //         out.innerHTML = "Values were confirmed"
+        //     } else {
+        //         out.innerHTML = "Values were not confirmed"
+        //     }
+        // }
+
+        function discount() {
+            let cost = parseFloat(document.getElementById("cost").value);
+            let count = parseFloat(document.getElementById("count").value);
+            let reductions = parseFloat(document.getElementById("reductions").value);
+            let val = "Totals are: ";
+            for (let i = 1; i < 5; i++) {
+                let discountPercent = i;
+                let total = (cost * count * (100 - reductions) / 100);
+                val += `${discountPercent}% is ${total.toFixed(1)}; `;
+            }
+            document.getElementById("result").innerHTML = val;
         }
 
-    }
-    
 
-</script>
+        function chooseOp() {
+            var price = document.getElementById("cost").value;
+            var discount = document.getElementById("reductions").value;
+            var addition = document.getElementById("total");
+            if (addition.checked) {
+                let count = (price + discount);
+                document.getElementById("output").innerHTML = "sum is " + count;
+            }
+            else {
+                text.innerHTML = "";
+            }
+            let multiplication = document.getElementById("multiplication");
+            if (multiplication.checked) {
+                var mult = price * discount;
+                document.getElementById("output").innerHTML = "mult is " + mult;
+            }
+            else {
+                text.innerHTML = "";
+            }
+            let exponent = document.getElementById("exponent");
+            if (exponent.checked) {
+                var exp = price ** discount;
+                document.getElementById("output").innerHTML = "exp is " + exp;
+            }
+            else {
+                text.innerHTML = "";
+            }
+
+        }
+
+
+    </script>
 
 </body>
-</html> 
+
+</html>
