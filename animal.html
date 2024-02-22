@@ -52,7 +52,7 @@
         //update result
         const resultValue = document.getElementById("Result");
         resultValue.innerHTML = `Correct: ${correct} | Wrong: ${wrong}`;
-        if(wrong>right){
+        if(wrong>correct){
             resultValue.innerHTML = "Sorry,too many guesses";
 
         }
